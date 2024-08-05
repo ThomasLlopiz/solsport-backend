@@ -2,11 +2,11 @@ const mysql = require("mysql");
 // require('dotenv').config();
 
 const db = mysql.createConnection({
-  host: "localhost",
-  user: "capyccom_santiago",
-  password: "43997224Santi",
-  database: "capyccom_solsport",
-  port: process.env.PORT || 3306,
+  host: process.env.HOSTDB || "localhost",
+  user: process.env.USERDB || "root",
+  database: process.env.DB || "solsport",
+  password: process.env.PASSWORDDB || "",
+  port: process.env.PORTDB || 3306,
 });
 
 db.connect((err) => {

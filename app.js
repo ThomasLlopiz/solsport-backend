@@ -11,25 +11,13 @@ app.use(cors({ origin: "http://localhost:5173" }));
 
 app.use(express.json());
 
-app.use("/backend/usuarios", usuariosRoutes);
-app.use("/backend/pedidos", pedidosRoutes);
-app.use("/backend/articulos", articulosRoutes);
-app.use("/backend/etapas", etapasRoutes);
+app.use("/usuarios", usuariosRoutes);
+app.use("/pedidos", pedidosRoutes);
+app.use("/articulos", articulosRoutes);
+app.use("/etapas", etapasRoutes);
 
-app.get("/backend/", (req, res) => {
-  const htmlResponse = `
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Conectado</title>
-    </head>
-    <body>
-      <h1>¡Servidor Conectado!</h1>
-    </body>
-    </html>
-  `;
+app.get("/", (req, res) => {
+  console.log("HOLA");
   res.send(htmlResponse);
 });
 
