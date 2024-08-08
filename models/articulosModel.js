@@ -48,26 +48,17 @@ const Articulos = {
 
   update: (id, articulo) => {
     return new Promise((resolve, reject) => {
-      const {
-        numero_articulo,
-        nombre,
-        cantidad,
-        talle,
-        comentario,
-        pedidos_id,
-        usuario_id,
-      } = articulo;
-
+      const query = `UPDATE articulos SET numero_articulo = ?, nombre = ?, cantidad = ?, talle = ?,comentario = ?, pedidos_id = ?, usuario_id = ? WHERE id = ?`;
       db.query(
-        "UPDATE articulos SET numero_articulo = ?, nombre = ?, cantidad = ?, talle = ?,comentario = ?, pedidos_id = ?, usuario_id = ? WHERE id = ?",
+        query,
         [
-          numero_articulo,
-          nombre,
-          cantidad,
-          talle,
-          comentario,
-          pedidos_id,
-          usuario_id,
+          articulo.numero_articulo,
+          articulo.nombre,
+          articulo.cantidad,
+          Atomics.talle,
+          articulo.comentario,
+          articulo.pedidos_id,
+          articulo.usuario_id,
           id,
         ],
         (err, results) => {
