@@ -26,17 +26,14 @@ exports.getArticuloById = async (req, res) => {
 exports.createArticulo = async (req, res) => {
   try {
     const userId = req.user?.id || null;
-    const { pedidos_id, ...rest } = req.body;
     const nuevoArticulo = {
-      ...rest,
+      ...req.body,
       pedidos_id,
       usuario_id: userId,
     };
-    console.log("Nuevo Artículo:", nuevoArticulo); // Agrega esta línea para depurar
     const articuloCreado = await Articulos.create(nuevoArticulo);
     res.status(201).json(articuloCreado);
   } catch (err) {
-    console.error("Error creando artículo:", err); // Agrega esta línea para depurar
     res.status(500).json({ error: err.message });
   }
 };

@@ -45,7 +45,6 @@ const Articulos = {
       });
     });
   },
-
   update: (id, articulo) => {
     return new Promise((resolve, reject) => {
       const query = `UPDATE articulos SET numero_articulo = ?, nombre = ?, cantidad = ?, talle = ?,comentario = ?, pedidos_id = ?, usuario_id = ? WHERE id = ?`;
