@@ -32,9 +32,11 @@ exports.createArticulo = async (req, res) => {
       pedidos_id,
       usuario_id: userId,
     };
+    console.log("Nuevo Artículo:", nuevoArticulo); // Agrega esta línea para depurar
     const articuloCreado = await Articulos.create(nuevoArticulo);
     res.status(201).json(articuloCreado);
   } catch (err) {
+    console.error("Error creando artículo:", err); // Agrega esta línea para depurar
     res.status(500).json({ error: err.message });
   }
 };
