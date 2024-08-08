@@ -1,21 +1,13 @@
 const express = require("express");
 const cors = require("cors");
 const http = require("http");
-
 const app = express();
 const usuariosRoutes = require("./routes/usuariosRoutes");
 const pedidosRoutes = require("./routes/pedidosRoutes");
 const articulosRoutes = require("./routes/articulosRoutes");
 const etapasRoutes = require("./routes/etapasRoutes");
 
-app.use(
-  cors({
-    origin:
-      "https://solsport-frontend.netlify.app" ||
-      "http://localhost:5173",
-    credentials: true,
-  })
-);
+app.use(cors({ origin: "https://solsport-frontend.netlify.app" }));
 
 app.use(express.json());
 
