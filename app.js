@@ -10,7 +10,9 @@ const etapasRoutes = require("./routes/etapasRoutes");
 
 app.use(
   cors({
-    origin: process.env.URLFRONTEND || "http://localhost:5173",
+    origin:
+      "https://solsport-frontend.netlify.app" ||
+      "http://localhost:5173",
     credentials: true,
   })
 );
