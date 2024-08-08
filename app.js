@@ -7,7 +7,11 @@ const pedidosRoutes = require("./routes/pedidosRoutes");
 const articulosRoutes = require("./routes/articulosRoutes");
 const etapasRoutes = require("./routes/etapasRoutes");
 
-app.use(cors({ origin: "https://solsport-frontend.netlify.app" }));
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+  })
+);
 
 app.use(express.json());
 
