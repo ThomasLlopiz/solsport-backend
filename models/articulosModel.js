@@ -36,26 +36,13 @@ const Articulos = {
   },
   create: (articulo) => {
     return new Promise((resolve, reject) => {
-      const {
-        numero_articulo,
-        nombre,
-        cantidad,
-        talle,
-        pedidos_id,
-        usuario_id,
-      } = articulo;
-
-      db.query(
-        "INSERT INTO articulos (numero_articulo, nombre, cantidad, talle, pedidos_id, usuario_id) VALUES (?, ?, ?, ?, ?, ?)",
-        [numero_articulo, nombre, cantidad, talle, pedidos_id, usuario_id],
-        (err, results) => {
-          if (err) {
-            reject(err);
-          } else {
-            resolve({ id: results.insertId, ...articulo });
-          }
+      db.query("INSERT INTO articulos SET ?", articulo, (err, results) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve({ id: results.insertId, ...articulo });
         }
-      );
+      });
     });
   },
 

@@ -26,7 +26,12 @@ exports.getArticuloById = async (req, res) => {
 exports.createArticulo = async (req, res) => {
   try {
     const userId = req.user?.id || null;
-    const nuevoArticulo = { ...req.body, usuario_id: userId };
+    const { pedidos_id, ...rest } = req.body;
+    const nuevoArticulo = {
+      ...rest,
+      pedidos_id,
+      usuario_id: userId,
+    };
     const articuloCreado = await Articulos.create(nuevoArticulo);
     res.status(201).json(articuloCreado);
   } catch (err) {
@@ -37,8 +42,10 @@ exports.createArticulo = async (req, res) => {
 exports.updateArticulo = async (req, res) => {
   try {
     const usuarioId = req.user?.id;
+    const { pedidos_id, ...rest } = req.body;
     const updatedArticulo = await Articulos.update(req.params.id, {
-      ...req.body,
+      ...rest,
+      pedidos_id,
       usuario_id: usuarioId,
     });
     if (updatedArticulo) {

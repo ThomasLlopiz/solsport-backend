@@ -37,7 +37,7 @@ exports.getEtapaById = async (req, res) => {
 exports.createEtapa = async (req, res) => {
   try {
     const userId = req.user?.id || null;
-    const { articulos_id, pedidos_id, ...rest } = req.body; // Destructuring to extract articulos_id and pedidos_id
+    const { articulos_id, pedidos_id, ...rest } = req.body;
     const nuevoEtapa = {
       ...rest,
       articulos_id,
