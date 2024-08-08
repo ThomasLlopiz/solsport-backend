@@ -7,7 +7,7 @@ const db = mysql.createConnection({
   password: process.env.PASSWORDDB || "",
   port: process.env.PORTDB || 3306,
 });
-
+//mysql://root:NyHSfAclCKywCDkzBOMsFXktXJONTDdL@roundhouse.proxy.rlwy.net:13122/railway
 db.connect((err) => {
   if (err) {
     console.error("Error connecting to the database:", err);
