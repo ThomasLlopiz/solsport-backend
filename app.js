@@ -6,7 +6,7 @@ const usuariosRoutes = require("./routes/usuariosRoutes");
 const pedidosRoutes = require("./routes/pedidosRoutes");
 const articulosRoutes = require("./routes/articulosRoutes");
 const etapasRoutes = require("./routes/etapasRoutes");
-
+//a
 app.use(
   cors({
     origin: process.env.URLFRONTEND || "http://localhost:5173",
