@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const http = require("http");
+const path = require("path");
 const session = require("express-session");
 
 const app = express();
@@ -20,10 +21,10 @@ app.use(
 app.use(
   session({
     secret: process.env.SECRETSESSION || "rsgfdghbe134125rtgwfsdwaedsf",
-    proxy: process.env.NODE_ENV == "production",
+    proxy: process.env.NODE_ENV === "production",
     resave: false,
     saveUninitialized: false,
-    cookie: { secure: process.env.NODE_ENV == "production", sameSite: "none" },
+    cookie: { secure: process.env.NODE_ENV === "production", sameSite: "none" },
   })
 );
 
@@ -34,21 +35,10 @@ app.use("/pedidos", pedidosRoutes);
 app.use("/articulos", articulosRoutes);
 app.use("/etapas", etapasRoutes);
 
-app.get("/", (req, res) => {
-  const htmlResponse = `
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Conectado</title>
-    </head>
-    <body>
-      <h1>¡Servidor Conectado!</h1>
-    </body>
-    </html>
-  `;
-  res.send(htmlResponse);
+app.use(express.static(path.join(__dirname, "public")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
 const server = http.createServer(app);
