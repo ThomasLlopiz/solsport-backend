@@ -26,10 +26,9 @@ exports.getArticuloById = async (req, res) => {
 exports.createArticulo = async (req, res) => {
   try {
     const userId = req.user?.id || null;
-    const pedidosId = req.pedidos?.id || null;
     const nuevoArticulo = {
       ...req.body,
-      pedidos_id: pedidosId,
+      pedidos_id,
       usuario_id: userId,
     };
     const articuloCreado = await Articulos.create(nuevoArticulo);

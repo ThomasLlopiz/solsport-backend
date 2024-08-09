@@ -8,7 +8,7 @@ const {
 
 router.get("/", verifyToken, articulosController.getAllArticulos);
 router.get("/:id", verifyToken, articulosController.getArticuloById);
-router.post("/", articulosController.createArticulo);
+router.post("/", verifyToken, articulosController.createArticulo);
 router.put("/:id", verifyToken, articulosController.updateArticulo);
 router.delete("/:id", verifyToken, articulosController.deleteArticulo);
 
