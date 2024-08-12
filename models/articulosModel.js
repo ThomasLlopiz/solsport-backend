@@ -54,7 +54,7 @@ const Articulos = {
           articulo.numero_articulo,
           articulo.nombre,
           articulo.cantidad,
-          Atomics.talle,
+          articulo.talle,
           articulo.comentario,
           articulo.pedidos_id,
           articulo.usuario_id,
