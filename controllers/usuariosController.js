@@ -1,5 +1,5 @@
 const usuariosModel = require("../models/usuariosModel");
-const jwt = require('jsonwebtoken');
+const jwt = require("jsonwebtoken");
 
 const usuariosController = {
   login: (req, res) => {
@@ -22,7 +22,7 @@ const usuariosController = {
       const token = jwt.sign(
         { id: user.id, rol: user.rol },
         "dGhpcyBpcyBhIHZlcnkgc2VjdXJlIGZvcndhcmQgdGhpcyBpc29uZ2x5IG1lZGlhdGlvbiB0aGF0IGlzIGNoYW5nZWQgdGhpcyBhcHByb3ZhbGx5IGxvbmcgYXQgbm9pZCBwcm9ibGVtcy4gU2VjdXJlIHZhbHVlIGlzIG1vcmUgd2l0aCBhbGdvcml0aG0",
-        { expiresIn: "8h" }
+        { expiresIn: "10m" }
       );
       res.json({ success: true, message: "Inicio de sesión exitoso", token });
     });
