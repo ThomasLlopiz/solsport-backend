@@ -13,7 +13,7 @@ const etapasRoutes = require("./routes/etapasRoutes");
 
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: process.env.URLFRONTEND || "http://localhost:5173",
     credentials: true,
   })
 );
