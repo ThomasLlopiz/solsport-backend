@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const pedidosController = require('../controllers/pedidosController');
+const telasController = require('../controllers/telasController');
 const { verifyToken, verifyAdminRole } = require('../middlewares/authMiddleware');
 
-router.get('/', pedidosController.getAllPedidos);
-router.get('/:id', pedidosController.getPedidoById);
-router.post('/', verifyToken, verifyAdminRole, pedidosController.createPedido); 
-router.put('/:id', verifyToken, verifyAdminRole, pedidosController.updatePedido); 
-router.delete('/:id', verifyToken, verifyAdminRole, pedidosController.deletePedido); 
+router.get('/', telasController.getAllTelas);
+router.get('/:id', telasController.getTelaById);
+router.post('/', verifyToken, verifyAdminRole, telasController.createTela); 
+router.put('/:id', verifyToken, verifyAdminRole, telasController.updateTela); 
+router.delete('/:id', verifyToken, verifyAdminRole, telasController.deleteTela); 
 
 module.exports = router;
