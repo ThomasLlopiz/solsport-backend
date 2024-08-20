@@ -10,10 +10,11 @@ const usuariosRoutes = require("./routes/usuariosRoutes");
 const pedidosRoutes = require("./routes/pedidosRoutes");
 const articulosRoutes = require("./routes/articulosRoutes");
 const etapasRoutes = require("./routes/etapasRoutes");
+const telasRoutes = require("./routes/telasRoutes");
 
 app.use(
   cors({
-    origin: process.env.URLFRONTEND || "http://localhost:5173",
+    origin: process.env.URLFRONTEND || "http://localhost:5174",
     credentials: true,
   })
 );
@@ -34,6 +35,7 @@ app.use("/usuarios", usuariosRoutes);
 app.use("/pedidos", pedidosRoutes);
 app.use("/articulos", articulosRoutes);
 app.use("/etapas", etapasRoutes);
+app.use("/telas", telasRoutes);
 
 const server = http.createServer(app);
 const PORT = process.env.PORT || 3000;
