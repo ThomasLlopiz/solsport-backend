@@ -11,6 +11,7 @@ const pedidosRoutes = require("./routes/pedidosRoutes");
 const articulosRoutes = require("./routes/articulosRoutes");
 const etapasRoutes = require("./routes/etapasRoutes");
 const telasRoutes = require("./routes/telasRoutes");
+const agregadosRoutes = require("./routes/agregadosRoutes");
 
 app.use(
   cors({
@@ -36,6 +37,7 @@ app.use("/pedidos", pedidosRoutes);
 app.use("/articulos", articulosRoutes);
 app.use("/etapas", etapasRoutes);
 app.use("/telas", telasRoutes);
+app.use("/agregados", agregadosRoutes);
 
 const server = http.createServer(app);
 const PORT = process.env.PORT || 3000;
