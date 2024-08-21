@@ -15,7 +15,7 @@ const agregadosRoutes = require("./routes/agregadosRoutes");
 
 app.use(
   cors({
-    origin: process.env.URLFRONTEND || "http://localhost:5174",
+    origin: process.env.URLFRONTEND || "http://localhost:5173",
     credentials: true,
   })
 );
