@@ -1,11 +1,11 @@
 const mysql = require("mysql2");
 
 const db = mysql.createConnection({
-  host: process.env.HOSTDB || "localhost",
-  user: process.env.USERDB || "root",
-  database: process.env.DB || "solsport",
-  password: process.env.PASSWORDDB || "",
-  port: process.env.PORTDB || 3306,
+  host: process.env.HOSTDB,
+  user: process.env.USERDB,
+  database: process.env.DB,
+  password: process.env.PASSWORDDB,
+  port: process.env.PORTDB,
 });
 //mysql://root:NyHSfAclCKywCDkzBOMsFXktXJONTDdL@roundhouse.proxy.rlwy.net:13122/railway
 db.connect((err) => {
