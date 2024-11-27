@@ -27,3 +27,18 @@ solsport-backend
     app.js
     package-lock.json
     package.json
+
+solsport-backend/
+        src
+            controllers/
+            db/
+            middlewares/
+            models/
+            routes/
+            index.js
+    node_modules/
+    .gitignore
+    babel.config.js
+    package-lock.json
+    package.json
+    webpack.config.js
