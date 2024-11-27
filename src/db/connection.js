@@ -1,11 +1,10 @@
 const mysql = require("mysql2");
-
+require('dotenv').config();
 const db = mysql.createConnection({
-  host: process.env.HOSTDB,
-  user: process.env.USERDB,
-  database: process.env.DB,
-  password: process.env.PASSWORDDB,
-  port: process.env.PORTDB,
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME
 });
 //mysql://root:NyHSfAclCKywCDkzBOMsFXktXJONTDdL@roundhouse.proxy.rlwy.net:13122/railway
 db.connect((err) => {

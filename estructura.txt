@@ -1,44 +1,31 @@
 solsport-backend
-    controllers
-        articulosController.js
-        etapasController.js
-        pedidosController.js
-        telasController.js
-        usuariosController.js
-    db
-        connections.js
-    middlewares
-        authMiddleware.js
-    models
-        agregadosModel.js
-        articuloModel.js
-        etapaModel.js
-        pedidoModel.js
-        telaModel.js
-        usuarioModel.js
-    routes
-        articulosRoutes.js
-        etapasRoutes.js
-        pedidosRoutes.js
-        telasRoutes.js
-        usuariosRoutes.js
+    src
+        controllers
+            articulosController.js
+            etapasController.js
+            pedidosController.js
+            telasController.js
+            usuariosController.js
+        db
+            connections.js
+        middlewares
+            authMiddleware.js
+        models
+            agregadosModel.js
+            articuloModel.js
+            etapaModel.js
+            pedidoModel.js
+            telaModel.js
+            usuarioModel.js
+        routes
+            articulosRoutes.js
+            etapasRoutes.js
+            pedidosRoutes.js
+            telasRoutes.js
+            usuariosRoutes.js
+        app.js
     node_modules
+    .env
     .gitignore
-    app.js
     package-lock.json
     package.json
-
-solsport-backend/
-        src
-            controllers/
-            db/
-            middlewares/
-            models/
-            routes/
-            index.js
-    node_modules/
-    .gitignore
-    babel.config.js
-    package-lock.json
-    package.json
-    webpack.config.js
