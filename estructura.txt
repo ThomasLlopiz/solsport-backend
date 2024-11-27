@@ -1,4 +1,5 @@
 solsport-backend
+    node_modules
     src
         controllers
             articulosController.js
@@ -23,9 +24,10 @@ solsport-backend
             pedidosRoutes.js
             telasRoutes.js
             usuariosRoutes.js
-        app.js
-    node_modules
+        index.js
+    .babelrc
     .env
     .gitignore
     package-lock.json
     package.json
+    webpack.confi.js
