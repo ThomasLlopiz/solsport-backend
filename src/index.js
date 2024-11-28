@@ -3,11 +3,6 @@ const cors = require("cors");
 const http = require("http");
 const path = require("path");
 const session = require("express-session");
-import { Buffer } from 'buffer';  // Para que Buffer esté disponible
-import 'stream-http';  // Polyfill para http
-import 'path-browserify';  // Polyfill para path
-import 'crypto-browserify';  // Polyfill para crypto
-
 const app = express();
 
 const usuariosRoutes = require("./routes/usuariosRoutes");
@@ -27,10 +22,10 @@ app.use(
 app.use(
   session({
     secret: process.env.SECRETSESSION || "rsgfdghbe134125rtgwfsdwaedsf",
-    proxy: process.env.NODE_ENV === "production",
+    proxy: process.env.NODE_ENV === "development",
     resave: false,
     saveUninitialized: false,
-    cookie: { secure: process.env.NODE_ENV === "production", sameSite: "none" },
+    cookie: { secure: process.env.NODE_ENV === "development", sameSite: "none" },
   })
 );
 
