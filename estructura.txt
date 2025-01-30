@@ -25,9 +25,7 @@ solsport-backend
             telasRoutes.js
             usuariosRoutes.js
         index.js
-    .babelrc
     .env
     .gitignore
     package-lock.json
     package.json
-    webpack.confi.js
