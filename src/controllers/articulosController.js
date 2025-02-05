@@ -43,15 +43,19 @@ exports.createArticulo = async (req, res) => {
 
 exports.updateArticulo = async (req, res) => {
   try {
-    const usuarioId = req.user?.id;
-    const { pedidos_id, ...rest } = req.body;
+    const usuarioId = req.user?.id; // Obtener el usuario actual
+    const { agregados, pedidos_id, ...rest } = req.body; // Extraer 'agregados' y el resto
+    const agregadosStr = agregados ? agregados.join(", ") : ""; // Convertir 'agregados' en una cadena
+
     const updatedArticulo = await Articulos.update(req.params.id, {
-      ...rest,
-      pedidos_id,
-      usuario_id: usuarioId,
+      ...rest, // El resto de los datos que vienen en la petición
+      agregados: agregadosStr, // Asignar la cadena 'agregados'
+      pedidos_id, // Mantener el ID de pedidos
+      usuario_id: usuarioId, // Asignar el id del usuario
     });
+
     if (updatedArticulo) {
-      res.json(updatedArticulo);
+      res.json(updatedArticulo); // Responder con el artículo actualizado
     } else {
       res.status(404).json({ message: "Artículo no encontrado" });
     }

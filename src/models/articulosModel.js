@@ -64,7 +64,10 @@ const Articulos = {
         ],
         (err, results) => {
           if (err) {
+            console.error("Error en la consulta de actualización:", err);
             reject(err);
+          } else if (results.affectedRows === 0) {
+            reject(new Error("No se encontró el artículo para actualizar."));
           } else {
             resolve({ id, ...articulo });
           }
