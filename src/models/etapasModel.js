@@ -52,13 +52,14 @@ const Etapas = {
     return new Promise((resolve, reject) => {
       const query = `
         UPDATE etapas
-        SET nombre = ?, fecha_inicio = ?, fecha_fin = ?, articulos_id = ?, pedidos_id = ?, usuario_id = ?
+        SET nombre = ?, comentario =?, fecha_inicio = ?, fecha_fin = ?, articulos_id = ?, pedidos_id = ?, usuario_id = ?
         WHERE id = ?
       `;
       db.query(
         query,
         [
           etapa.nombre,
+          etapa.comentario,
           etapa.fecha_inicio,
           etapa.fecha_fin,
           etapa.articulos_id,
