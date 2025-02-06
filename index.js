@@ -5,12 +5,13 @@ const path = require("path");
 const session = require("express-session");
 const app = express();
 
-const usuariosRoutes = require("./routes/usuariosRoutes");
-const pedidosRoutes = require("./routes/pedidosRoutes");
-const articulosRoutes = require("./routes/articulosRoutes");
-const etapasRoutes = require("./routes/etapasRoutes");
-const telasRoutes = require("./routes/telasRoutes");
-const agregadosRoutes = require("./routes/agregadosRoutes");
+// Actualiza las rutas para apuntar a src/routes
+const usuariosRoutes = require("./src/routes/usuariosRoutes");
+const pedidosRoutes = require("./src/routes/pedidosRoutes");
+const articulosRoutes = require("./src/routes/articulosRoutes");
+const etapasRoutes = require("./src/routes/etapasRoutes");
+const telasRoutes = require("./src/routes/telasRoutes");
+const agregadosRoutes = require("./src/routes/agregadosRoutes");
 
 app.use(
   cors({
@@ -25,12 +26,16 @@ app.use(
     proxy: process.env.NODE_ENV === "development",
     resave: false,
     saveUninitialized: false,
-    cookie: { secure: process.env.NODE_ENV === "development", sameSite: "none" },
+    cookie: {
+      secure: process.env.NODE_ENV === "development",
+      sameSite: "none",
+    },
   })
 );
 
 app.use(express.json());
 
+// Rutas actualizadas para apuntar a src/routes
 app.use("/usuarios", usuariosRoutes);
 app.use("/pedidos", pedidosRoutes);
 app.use("/articulos", articulosRoutes);
@@ -39,7 +44,7 @@ app.use("/telas", telasRoutes);
 app.use("/agregados", agregadosRoutes);
 
 const server = http.createServer(app);
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.DB_PORT || 3000;
 
 server.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
