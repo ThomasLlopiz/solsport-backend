@@ -1,3 +1,14 @@
+Estrctura cPanel
+
+solsportapi
+    public
+    srctmp
+    .env.htaccess
+    index.js
+    node_modules
+    package-lock.json
+    package.json
+    
 solsport-backend
     node_modules
     src
@@ -29,3 +40,5 @@ solsport-backend
     .gitignore
     package-lock.json
     package.json
+
+
