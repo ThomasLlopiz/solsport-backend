@@ -24,7 +24,7 @@ solsport-backend
             pedidosRoutes.js
             telasRoutes.js
             usuariosRoutes.js
-        index.js
+    index.js
     .env
     .gitignore
     package-lock.json
