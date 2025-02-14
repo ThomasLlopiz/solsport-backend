@@ -1,11 +1,9 @@
 const express = require("express");
 const cors = require("cors");
 const http = require("http");
-const path = require("path");
 const session = require("express-session");
 const app = express();
 
-// Actualiza las rutas para apuntar a src/routes
 const usuariosRoutes = require("./src/routes/usuariosRoutes");
 const pedidosRoutes = require("./src/routes/pedidosRoutes");
 const articulosRoutes = require("./src/routes/articulosRoutes");
@@ -27,7 +25,7 @@ app.use(
     resave: false,
     saveUninitialized: false,
     cookie: {
-      secure: process.env.NODE_ENV === "development",
+      secure: process.env.NODE_ENV === "production",
       sameSite: "none",
     },
   })
@@ -35,13 +33,17 @@ app.use(
 
 app.use(express.json());
 
-// Rutas actualizadas para apuntar a src/routes
 app.use("/usuarios", usuariosRoutes);
 app.use("/pedidos", pedidosRoutes);
 app.use("/articulos", articulosRoutes);
 app.use("/etapas", etapasRoutes);
 app.use("/telas", telasRoutes);
 app.use("/agregados", agregadosRoutes);
+
+app.get("/", (req, res) => {
+  console.log("Servidor conectado en /");
+  res.send("Servidor funcionando correctamente.");
+});
 
 const server = http.createServer(app);
 const PORT = process.env.DB_PORT || 3000;

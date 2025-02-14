@@ -1,14 +1,38 @@
 Estrctura cPanel
-
-solsportapi
+solsport-prueba
     public
-    srctmp
-    .env.htaccess
+    src
+        controllers
+            articulosController.js
+            etapasController.js
+            pedidosController.js
+            telasController.js
+            usuariosController.js
+        db
+            connections.js
+        middlewares
+            authMiddleware.js
+        models
+            agregadosModel.js
+            articuloModel.js
+            etapaModel.js
+            pedidoModel.js
+            telaModel.js
+            usuarioModel.js
+        routes
+            articulosRoutes.js
+            etapasRoutes.js
+            pedidosRoutes.js
+            telasRoutes.js
+            usuariosRoutes.js
+    tmp
+    .env
+    .htaccess
     index.js
     node_modules
     package-lock.json
     package.json
-    
+
 solsport-backend
     node_modules
     src
@@ -40,5 +64,3 @@ solsport-backend
     .gitignore
     package-lock.json
     package.json
-
-
